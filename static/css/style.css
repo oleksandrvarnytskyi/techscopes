@@ -247,7 +247,6 @@ textarea{
 
 
 .message a{
-    background-image: url('../images/sprite-ico.png');
     background-repeat: no-repeat;
     width: 22px;
     height: 22px;
@@ -267,7 +266,6 @@ textarea{
 }
 
 .bell-button{
-    background-image: url('../images/sprite-ico.png');
     background-repeat: no-repeat;
     width: 22px;
     height: 22px;
@@ -313,7 +311,6 @@ textarea{
 }
 
 .settings-button{
-    background-image: url('../images/sprite-ico.png');
     background-repeat: no-repeat;
     width: 22px;
     height: 22px;
@@ -354,7 +351,6 @@ textarea{
 .deco-triange{
     height: 16px;
     width: 20px;
-    background-image: url('../images/sprite-ico.png');
     background-repeat: no-repeat;
     background-position: 0px -121px;
     float: right;
@@ -700,7 +696,6 @@ textarea{
     position: absolute;
     width: 15px;
     height: 15px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -29px -74px;
     display: table;
     right: 6px;
@@ -957,10 +952,6 @@ textarea{
     display: table;
 }
 
-.big-middle-crumbs ul{
-    list-style-image: url('../images/arrow-list.png');
-}
-
 .big-middle-crumbs ul li:first-child{
     list-style: none;
     font-weight: bold;
@@ -1166,8 +1157,7 @@ textarea{
     top: 0px;
     width: 23px;
     height: 23px;
-    background-image: url('../images/sprite-ico.png');
-    background-position: -104px -95px;    
+    background-position: -104px -95px;
 }
 
 .add-item:hover{
@@ -1207,7 +1197,6 @@ textarea{
     display: table;
     width: 37px;
     height: 37px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -47px -2px;
     float: left;
     margin: 0px 13px 0px 0px;
@@ -1466,7 +1455,6 @@ textarea{
     float: left;
     width: 23px;
     height: 23px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -1px -70px;
     margin: 6px 0px 0px 0px;
 }
@@ -1637,7 +1625,6 @@ textarea{
     height: 146px;
     width: 260px;
     top: 0px;
-    background-image: url('../images/play.png');
     background-position: 50% 50%;
     background-repeat: no-repeat;
 }
@@ -1706,7 +1693,6 @@ textarea{
     width: 23px;
     height: 23px;
     position: absolute;
-    background-image: url('../images/sprite-ico.png');
     background-position: -52px -94px;
     right: 20px;
     top: 30px;
@@ -1802,7 +1788,6 @@ textarea{
 .data-small{
     font-size: 11px;
 }
-                                                    /*Мини статья пользоваеля*/
 .post-body-box{
     width: 100%;
         border-radius: 10px 10px 0px 0px;
@@ -2050,7 +2035,6 @@ textarea{
 .journal-links-likes{
     width: 20px;
     height: 23px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -80px -94px;
     display: table;
     float: left;
@@ -2059,7 +2043,6 @@ textarea{
 .journal-links-message{
     width: 20px;
     height: 23px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -1px -47px;
     display: table;
     float: left;
@@ -2094,7 +2077,6 @@ textarea{
 .yacth-journal-list-old:hover{
     text-decoration: none;
 }
-                                    /*Кнопки войти, зарегистрироваться, и соц*/
 .non-registered-service-box{
     display: table;
     float: right;
@@ -2110,8 +2092,7 @@ textarea{
 .non-registered-socials a{
     width: 36px;
     height: 36px;
-    background-image: url('../images/sprite-ico.png');
-    display: table;    
+    display: table;
     float: left;
     margin: 0px 0px 0px 10px;
 }
@@ -2566,7 +2547,6 @@ textarea{
 }
 
 .facebook-reg-butt{
-    background-image: url('../images/sprite-ico.png');
     width: 23px;
     height: 23px;
     background-position: -27px -94px;
@@ -2610,7 +2590,6 @@ textarea{
 
 .checks-quant input[type="checkbox"] + span{
     position: absolute;
-    background-image: url('../images/sprite-ico.png');
     width: 100%;
     height: 100%;
     background-position: -113px -42px
@@ -2846,7 +2825,6 @@ textarea{
     appearance:none;
     padding: 0px 0px 0px 9px;
     box-sizing: border-box;
-    background-image: url('../images/summary-arrow.png');
     background-repeat: no-repeat;
     background-position: 328px 5px;
 }
@@ -2866,7 +2844,6 @@ textarea{
     appearance:none;
     padding: 0px 0px 0px 9px;
     box-sizing: border-box;
-    background-image: url('../images/summary-arrow.png');
     background-repeat: no-repeat;
     background-position: 328px 5px;
 }
@@ -2904,7 +2881,6 @@ textarea{
     appearance:none;
     padding: 0px 0px 0px 9px;
     box-sizing: border-box;
-    background-image: url('../images/summary-arrow.png');
     background-repeat: no-repeat;
     background-position: 54px 5px;
 }
@@ -2938,7 +2914,6 @@ textarea{
     appearance:none;
     padding: 0px 0px 0px 9px;
     box-sizing: border-box;
-    background-image: url('../images/summary-arrow.png');
     background-repeat: no-repeat;
     background-position: 278px 5px;
     margin: 5px 0px 5px 0px;
@@ -3107,8 +3082,7 @@ textarea{
     left: 0;
     width: 17px;
     height: 17px;
-    background-image: url('../images/sprite-ico.png');
-    background-position: -113px -42px;  
+    background-position: -113px -42px;
 }
 
 .post-quant-field input:not(checked) + label:after {
@@ -3125,7 +3099,6 @@ textarea{
 }
 
 .post-quant-field input:focus + label:before {
-    background-image: url('../images/sprite-ico.png');
     background-position: -113px -60px;
 }
 
@@ -3621,7 +3594,6 @@ textarea{
 .wysiwyg-bold{
     width: 23px;
     height: 23px;
-    background-image: url('../images/sprite-ico.png');
     background-position: 3px -139px;
     display: table;
     margin: 6px auto;
@@ -3630,7 +3602,6 @@ textarea{
 .wysiwyg-italic{
     width: 17px;
     height: 17px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -17px -142px;
     display: table;
     margin: 9px auto;
@@ -3639,7 +3610,6 @@ textarea{
 .wysiwyg-line-through{
     width: 21px;
     height: 17px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -30px -143px;
     display: table;
     margin: 9px auto;
@@ -3648,7 +3618,6 @@ textarea{
 .wysiwyg-link{
     width: 23px;
     height: 23px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -4px -161px;
     display: table;
     margin: 6px auto;
@@ -3657,7 +3626,6 @@ textarea{
 .wysiwyg-video{
     width: 23px;
     height: 18px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -49px -143px;
     display: table;
     margin: 8px auto;
@@ -3666,7 +3634,6 @@ textarea{
 .wysiwyg-image{
     width: 23px;
     height: 23px;
-    background-image: url('../images/sprite-ico.png');
     background-position: -29px -159px;
     display: table;
     margin: 6px auto;    
@@ -3709,7 +3676,6 @@ textarea{
     appearance:none;
     padding: 0px 0px 0px 20px;
     box-sizing: border-box;
-    background-image: url('../images/summary-arrow.png');
     background-repeat: no-repeat;
     background-position: 54px 5px;
 }
@@ -3729,7 +3695,6 @@ textarea{
     appearance:none;
     padding: 0px 0px 0px 13px;
     box-sizing: border-box;
-    background-image: url('../images/summary-arrow.png');
     background-repeat: no-repeat;
     background-position: 97px 5px;
 }
@@ -3749,7 +3714,6 @@ textarea{
     appearance:none;
     padding: 0px 0px 0px 13px;
     box-sizing: border-box;
-    background-image: url('../images/summary-arrow.png');
     background-repeat: no-repeat;
     background-position: 61px 5px;
 }
@@ -3812,7 +3776,6 @@ textarea{
     height: 34px;
     padding: 0px 10px 0px 13px;
     box-sizing: border-box;
-    background-image: url(../images/summary-arrow.png);
     background-repeat: no-repeat;
     background-position: 96px 5px;
 }
@@ -3878,7 +3841,6 @@ textarea{
     margin: 30px 0px;
 }
 .pravila_ul_line li{
-    background:url(../images/116273-magic-marker-icon-symbols-shapes-check-mark6-ps.png) left center no-repeat;
     background-size: 40px;
     background-position: 0px -5px;
     font-size: 20px;
@@ -3888,7 +3850,6 @@ textarea{
     margin-left: -30px;
 }
 .pravila_ul_line_non li{
-    background:url(../images/pangkah.png) left center no-repeat;
     background-size: 35px;
     background-position: 0px -2px;
     font-size: 20px;
@@ -4193,7 +4154,6 @@ textarea{
 }
 .answer_to i
 {
-	background: URL('../images/answer.png') no-repeat;
     display: inline-block;
     height: 15px;
     width: 18px;
