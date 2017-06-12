@@ -26,7 +26,7 @@ SECRET_KEY = '%zwdeyn--t*8*qv0(a%+5c!hsfb&skn5((g_pjq&j&n#t50qpa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://rocky-cove-33964.herokuapp.com/']
+ALLOWED_HOSTS = ['rocky-cove-33964.herokuapp.com']
 
 
 # Application definition
@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'techscopes',
         'USER': 'techscopes',
         'PASSWORD': 'techscopes',
-        'HOST': 'https://rocky-cove-33964.herokuapp.com/',
+        'HOST': 'rocky-cove-33964.herokuapp.com',
         'PORT': '5432',
     }
 }
