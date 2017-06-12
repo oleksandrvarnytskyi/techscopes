@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{ post.header }}
+{% endblock title %}
+
+{% block content %}
+    <div class="left-sidebar" style="width: 10%">
+    </div>
+    <div class="big-middle-box">
+        <div class="post-body-box-article">
+            <div class="post-body-head-box-article" >
+                <div class="post-body-about-box-article">
+                    <div class="post-body-about-title-article">
+                        <span>The article published by &nbsp<a href="">{{ post.author.username }}</a></span>
+                    </div>
+                    <div class="post-body-about-info-aricle">{{ post.author.get_full_name }}</div>
+                </div>
+            </div>
+            {% if post.image %}
+                <div class="main-post-photo-box" >
+                    <div class="post-item-photo-box">
+                        <div class="post-item-main-photo">
+                            <a href="#"><img src="{{ post.image.url }}" width="920" height="483"></a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="post-body-text-box-article" >
+                <h4><a href="#" >{{post.title}}</a></h4>
+                    {{ post.text|safe }}
+                 <div class="post-item-info-block" >
+                    <div class="post-item-like">
+                            <button class="like-button"
+                                    data-url="{% url 'news:like_add' %}"
+                                    data-counter="#likes_{{ post.get_content_type }}_{{ post.pk }}"
+                                    data-content_type="{{ post.get_content_type }}"
+                                    data-object_id="{{ post.pk }}">
+                                Like
+                            </button>
+                            <span id="likes_{{ post.get_content_type }}_{{ post.pk }}">{{ post.likes.count }}</span>
+                    </div>
+                    <div class="post-item-link">
+                        <a class="post-item-old-link" href="#">{{ post.published|date:"d.n.Y" }}</a>
+                        <a id=item-comment-link class="post-item-comment-link" href="#">{{ post.get_comments_amount }} Comments</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-message-send-article">
+            <form name="form_massage-article" action="{% url 'comments:add_comment' %}" method="POST" id="comment_form" >{% csrf_token %}
+                <input type='hidden' name="object_id" value="{{ post.id }}" />
+                <input type='hidden' name="content_type" value="{{ post.get_content_type }}" />
+                <textarea class="block_massage_answer-article" id="block_massage_main-article" name="text" form="comment_form" placeholder="Type the text.." required="required"></textarea>
+                <input type="submit" value="SEND" class="but_massage_send-aricle">
+            </form>
+        </div>
+        <div id="comment_user" class="comment_user_lost">
+            {% for comment in comments %}
+                <div class="user_lost">
+                    <div class="post-body-head-box-comment">
+                        <div class="post-body-about-box-comment">
+                            <div class="post-body-about-title-comment">
+                                <span><a href="#">{{ comment.author.username }}</a></span>
+                            </div>
+
+                        </div>
+                        <div class="post-body-service-box-comment">
+                            <p>{{ comment.text|safe|linebreaks }}</p>
+                        </div>
+                    </div>
+                    <div class="main-message-answer-article">
+                        <form name="form_massage-article" action="{% url 'comments:add_comment' %}" method="POST" id="reply_form_{{ forloop.counter }}" >{% csrf_token %}
+                            <input type='hidden' name="object_id" value="{{ comment.id }}" />
+                            <input type='hidden' name="content_type" value="{{ comment.get_content_type }}" />
+                            <input type='hidden' name="reply_to" value="{{ comment.id }}" />
+                            <textarea class="block_massage_answer-article" name="text" form="reply_form_{{ forloop.counter }}" placeholder='Type the text..' required="required"></textarea>
+                            <input type="submit" value="Answer" class="but_massage_send-aricle">
+                        </form>
+                    </div>
+                </div>
+                {% for reply in comment.comment_set.all %}
+                    <div class="user_lost" style="padding: 5px 0 0;margin: -10px 0px;background-color: #b7b7b7">
+                        <div class="post-body-head-box-comment">
+                            <div class="post-body-about-box-comment">
+                                <div class="post-body-about-title-comment">
+                                    <span><a href="#" style="color: #4e71a8">{{ reply.author.username }}</a></span><div class='answer_to'><i></i><a href='#' style="color: #4e71a8">{{ reply.author.username }}</a></div>
+                                </div>
+                            </div>
+                            <div class="post-body-service-box-comment">
+                                <p>{{ reply.text|safe|linebreaks }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% if comments.paginator and comments.has_other_pages %}
+                <div class="border_pagin">
+                    <ul class="vkladka">
+                        {% if comments.has_previous %}
+                            <li><a class="arrow-vklad" href="?page={{ comments.previous_page_number }}">&lt;</a></li>
+                        {% endif %}
+
+                        {% for page in comments.paginator.page_range %}
+                            {% if page == comments.number %}
+                                <li><a href="?page={{ page }}">{{ page }}</a></li>
+                            {% else %}
+                                <li><a href="?page={{ page }}" style="background-color: #7c7c7c;">{{ page }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if comments.has_next %}
+                            <li><a class="arrow-vklad" href="?page={{ comments.next_page_number }} }}">&gt;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block js %}
+    <script defer type="application/javascript" src="{% static 'js/like.js' %}"></script>
+{% endblock js %}

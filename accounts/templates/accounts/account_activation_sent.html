@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="main-pop-up-login" style="width: 570px">
+        <p>Please confirm your email address to complete the registration and go to</p>
+        <a href="{% url 'accounts:login' %}"><h4>log in</h4></a>
+    </div>
+{% endblock %}

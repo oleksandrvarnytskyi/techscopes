@@ -1,0 +1,31 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title>{% block title %}Now is Better Than Never{% endblock %}</title>
+  </head>
+  <body>
+    {% if user.is_authenticated %}
+        <header id="sail-header">
+            <div class="sail-header-box">
+                <div class="header-logo-box"><a href="/" style="text-decoration:none"><h1>Techscopes</h1></a></div>
+                <div class="non-registered-service-box">
+                    <a href="{% url 'accounts:logout' %}" class="registration-button">sign out</a>
+                </div>
+            </div>
+        </header>
+    {% endif %}
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script defer type="application/javascript" src="{% static 'js/ajax-setup.js' %}"></script>
+
+    {% block js %}
+    {% endblock js %}
+  </body>
+</html>

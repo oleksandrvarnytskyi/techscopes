@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% if posts %}
+        <div class="left-sidebar">
+            <div class="non-reg-search-box">
+                <form method="get" action="">
+                    <div class="search-box" >
+                        <span style="position: absolute">Search:</span>
+                        <input id="non-reg-search" type="text" name="q">
+                        <button id="non-reg-find" type="submit">Submit</button>
+                    </div>
+                    <div class="sort-by-box" style="padding: 50px 0px 0px 0px;">
+                        <span>Sort by:</span>
+                        <small style="color: #30d5c8; margin-left: 20px">Country</small>
+                        {% if sort_by == 'country' %}
+                          <input type="radio" checked="checked" value="country" name="sort_by">
+                        {% else %}
+                          <input type="radio" value="country" name="sort_by">
+                        {% endif %}
+                        <small style="color: #30d5c8; margin-left: 20px">City</small>
+                        {% if sort_by == 'city' %}
+                            <input type="radio" checked="checked" value="city" name="sort_by">
+                        {% else %}
+                            <input type="radio" value="city" name="sort_by">
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="middle-box">
+            {% for post in posts %}
+                <div class="post-item-quant">
+                    <div class="post-item-quant-body">
+                        <div class="post-item-info" >
+                            <div class="post-item-photo-box">
+                                {% if post.image %}
+                                        <div class="post-item-main-photo">
+                                            <a href="#"><img src="{{ post.image.url }}" width="480" height="270"></a>
+                                        </div>
+                                {% endif %}
+                            </div>
+                            <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                            <div class="post-item-text-block">
+                                <p>{{ post.text|truncatechars:'260'|safe }}</p>
+                            </div>
+                            <div class="post-item-info-block">
+                                <div class="post-item-like">
+                                    <button class="like-button"
+                                            data-url="{% url 'news:like_add' %}"
+                                            data-counter="#likes_{{ post.get_content_type }}_{{ post.pk }}"
+                                            data-content_type="{{ post.get_content_type }}"
+                                            data-object_id="{{ post.pk }}">
+                                        Like
+                                    </button>
+                                    <span id="likes_{{ post.get_content_type }}_{{ post.pk }}">{{ post.likes.count }}</span>
+                                </div>
+                                <div class="post-item-link">
+                                    <a class="post-item-old-link" href="#">{{ post.when_created|date:"d.n.Y" }}</a>
+                                    <a class="post-item-comment-link" href="#">{{ post.get_comments_amount }} Comments</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-item-quant-footer">
+                        <a href="{{ post.get_absolute_url }}">Show more</a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if is_paginated %}
+                <div class="border_pagin">
+                    <ul class="vkladka">
+                        {% if page_obj.has_previous %}
+                            <li><a class="arrow-vklad" href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+                        {% endif %}
+
+                        {% for page in paginator.page_range %}
+                            {% if page == page_obj.number %}
+                                <li><a href="?page={{ page }}">{{ page }}</a></li>
+                            {% else %}
+                                <li><a href="?page={{ page }}" style="background-color: #7c7c7c;">{{ page }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                            <li><a class="arrow-vklad" href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+       {% endif %}
+{% endblock %}
+
+
+{% block js %}
+    <script defer type="application/javascript" src="{% static 'js/like.js' %}"></script>
+{% endblock js %}
