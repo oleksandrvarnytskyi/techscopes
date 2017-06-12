@@ -1,0 +1,1 @@
+web: gunicorn techscopes.wsgi.application --log-file
