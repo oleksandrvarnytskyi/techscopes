@@ -1,1 +1,1 @@
-web: gunicorn techscopes.wsgi.application --log-file
+web: gunicorn techscopes.wsgi.application --log-file -
