@@ -1,3 +1,5 @@
+codegen==1.0
+dj-config-url==0.1.1
 Django==1.10.6
 django-bootstrap3==8.2.3
 gunicorn==19.7.1
@@ -5,4 +7,4 @@ olefile==0.44
 Pillow==4.1.1
 psycopg2==2.7.1
 pytz==2017.2
-dj-config-url==0.1.1
+whitenoise==3.3.0
