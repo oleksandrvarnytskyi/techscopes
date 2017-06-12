@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'techscopes',
         'USER': 'techscopes',
         'PASSWORD': 'techscopes',
-        'HOST': 'localhost',
+        'HOST': 'https://rocky-cove-33964.herokuapp.com/',
         'PORT': '5432',
     }
 }
