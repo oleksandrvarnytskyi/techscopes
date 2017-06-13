@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="post-item-link">
                                     <a class="post-item-old-link" href="#">{{ post.when_created|date:"d.n.Y" }}</a>
-                                    <a class="post-item-comment-link" href="#">{{ post.get_comments_amount }} Comments</a>
+                                    <a class="post-item-comment-link" href="{{ post.get_absolute_url }}#comment_user">{{ post.get_comments_amount }} Comments</a>
                                 </div>
                             </div>
                         </div>
