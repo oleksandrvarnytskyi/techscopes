@@ -11,10 +11,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '%zwdeyn--t*8*qv0(a%+5c!hsfb&skn5((g_pjq&j&n#t50qpa'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['rocky-cove-33964.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -86,7 +85,7 @@ DATABASES = {
         'NAME': 'techscopes',
         'USER': 'techscopes',
         'PASSWORD': 'techscopes',
-        'HOST': 'rocky-cove-33964.herokuapp.com',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -126,35 +125,30 @@ USE_L10N = True
 USE_TZ = True
 
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'savar'
-EMAIL_HOST_PASSWORD = 'faith_19'
+EMAIL_HOST_USER = 'XXXXXXXX'
+EMAIL_HOST_PASSWORD = 'XXXXXXXXXXXXX'
 EMAIL_USE_TLS = True
 
 try:
     from local_settings import *
 except ImportError:
     pass
-
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
